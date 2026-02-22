@@ -1,28 +1,52 @@
-# BlackRoad Labs — Experiments
+# Experiments
 
-This repo tracks experimental research and proof-of-concept work
-before it graduates to a production repo.
+Active research experiments from BlackRoad Labs.
 
 ## Active Experiments
 
-| Experiment | Status | Owner | Repo |
-|-----------|--------|-------|------|
-| PS-SHA∞ Memory | 🟢 Graduated | CECE | `blackroad-ai-memory-bridge` |
-| K(t) Emergence Model | 🟢 Graduated | CECE | `blackroad-math/lab/emergence.py` |
-| Trinary Logic | 🟢 Graduated | CECE | `blackroad-math/lab/trinary_extended.py` |
-| Multi-AI Coordination | 🟡 Active | Octavia | `blackroad-agents/coordination/` |
-| 30K Agent Mesh | 🟡 Active | Alice | `blackroad-os-mesh` |
-| Quantum Math | 🔵 Exploring | Lucidia | `blackroad-math/lab/` |
+| ID | Title | Status | Lead | Branch |
+|----|-------|--------|------|--------|
+| EXP-001 | PS-SHA∞ Memory Integrity | 🟢 Running | ECHO | `exp/memory-integrity` |
+| EXP-002 | Trinary Logic Gate Performance | 🟡 Paused | LUCIDIA | `exp/trinary-gates` |
+| EXP-003 | Contradiction Amplification K(t) | �� Running | PRISM | `exp/contradiction-amp` |
+| EXP-004 | Tokenless Gateway Latency | 🟢 Running | ALICE | `exp/gateway-latency` |
+| EXP-005 | Agent Emergence Patterns | 🔵 Proposed | CECE | `exp/emergence` |
 
 ## Experiment Lifecycle
-1. **Idea** → Open issue with `[EXPERIMENT]` label
-2. **Prototype** → Create `experiments/<name>/` directory here
-3. **Validation** → 2 weeks of testing
-4. **Graduation** → Move to production repo
-5. **Archive** → Move to `BlackRoad-Archive`
 
-## Running Experiments
-```bash
-cd experiments/<name>
-# Follow individual README in each experiment dir
 ```
+PROPOSED → DESIGNING → RUNNING → ANALYZING → COMPLETE → ARCHIVED
+                ↓
+            CANCELLED
+```
+
+## Running an Experiment
+
+```bash
+# Clone and set up
+git clone https://github.com/BlackRoad-Labs/experiments
+cd experiments
+
+# Run EXP-001
+python experiments/exp-001-memory/run.py --iterations 1000
+
+# Analyze results
+python experiments/exp-001-memory/analyze.py --output results/exp-001/
+```
+
+## Results Archive
+
+Completed experiment results are archived in `results/`:
+- `results/exp-XXX/data.jsonl` — raw data
+- `results/exp-XXX/report.md` — analysis report
+- `results/exp-XXX/visualizations/` — charts
+
+## Contributing an Experiment
+
+1. Open an issue with the `experiment` label
+2. Fork and create `experiments/exp-NNN-<name>/`
+3. Include `hypothesis.md`, `methodology.md`, `run.py`
+4. Submit PR with initial results
+
+---
+*BlackRoad Labs — where AI emergence happens*
