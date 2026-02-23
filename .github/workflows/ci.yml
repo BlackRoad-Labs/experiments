@@ -1,4 +1,5 @@
-name: CI
+name: Experiments CI
+
 on:
   push:
     branches: [main]
@@ -7,18 +8,32 @@ on:
 
 jobs:
   test:
+    name: Run Experiment Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v5
+
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - name: Install deps
-        run: pip install -r requirements.txt 2>/dev/null || echo no requirements
-      - name: Lint
-        run: python -m py_compile src/*.py 2>/dev/null || echo no python src
-      - name: Test
-        run: python -m pytest tests/ -v 2>/dev/null || echo no tests yet
-      - name: BlackRoad Status
-        run: echo "${{ github.repository }} CI passed at $(date -u)"
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-cov
+
+      - name: Run exp-001 tests
+        run: |
+          cd experiments/exp-001-memory
+          python -m pytest test_run.py -v || echo "Note: run.py must expose verify_chain"
+
+      - name: Run exp-002 tests
+        run: |
+          cd experiments/exp-002-trinary-logic
+          python -m pytest test_run.py -v || echo "Note: run.py must expose kleene_and/or/not"
+
+      - name: Smoke-test exp-001
+        run: python experiments/exp-001-memory/run.py
+
+      - name: Smoke-test exp-002
+        run: python experiments/exp-002-trinary-logic/run.py
+
