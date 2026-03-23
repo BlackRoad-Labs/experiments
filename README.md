@@ -1,3 +1,11 @@
+# experiments
+
+> Experimental features and proof-of-concepts
+
+Part of the [BlackRoad OS](https://blackroad.io) ecosystem — [BlackRoad-Labs](https://github.com/BlackRoad-Labs)
+
+---
+
 # Experiments
 
 Active research experiments from BlackRoad Labs.
